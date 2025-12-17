@@ -3,10 +3,9 @@ title: "How to Win on NEAR as an Android Developer"
 seoDescription: "Guide to winning on NEAR for Android developers using Kotlin, OpenAPI, and real Web3 products. Learn grants, tools, and building strategies"
 datePublished: Sat Nov 15 2025 15:26:12 GMT+0000 (Coordinated Universal Time)
 cuid: cmi0fvumy000002l65aocce3y
-slug: how-to-win-on-near-as-an-android-developer
+slug: how-to-win-on-near-as-an-android-
 cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1763166763114/5fcd952c-204f-41c2-8663-cec293638374.png
 ogImage: https://cdn.hashnode.com/res/hashnode/image/upload/v1764098249755/0e7a014d-9c7a-40f4-bc77-0b8e886363cd.png
-tags: mobile-development, blockchain, kotlin, blockchain-development, near-blockchain, near-proctocol
 
 ---
 
