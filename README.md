@@ -1,69 +1,72 @@
-# cNGN Kotlin SDK (Starter)
+# cNGN-Kotlin-SDK
+![Kotlin](https://img.shields.io/badge/Kotlin-0095D5?style=for-the-badge&logo=kotlin&logoColor=white) ![Gradle](https://img.shields.io/badge/Gradle-02303A?style=for-the-badge&logo=gradle&logoColor=white)
 
-A minimal, opinionated Kotlin SDK for the [cNGN API](https://docs.cngn.co/integrations/endpoints).
+> A minimal, opinionated Kotlin SDK for the CNGNApi.
 
-This starter uses:
+This repository provides a Kotlin SDK for interacting with the CNGNApi. It is designed to be easy to use and provides a simple, intuitive API.
 
-- Kotlin JVM
-- Coroutines (`suspend` functions)
-- Retrofit + OkHttp
-- Moshi for JSON
+## 📋 Table of Contents
+- [Features](#-features)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Documentation](#-documentation)
+- [Folder Structure](#-folder-structure)
+- [Testing](#-testing)
+- [Contributing](#-contributing)
 
-Currently implemented endpoints:
+## ✨ Features
+- Provides a simple, intuitive API for interacting with the CNGNApi
+- Includes models and exceptions for handling API responses
+- Supports Gradle build system
 
-- `GET /v1/api/balance`
-- `GET /v1/api/banks`
+## 📦 Installation
+To use this SDK in your project, you can add it as a dependency in your `build.gradle.kts` file.
 
-You can extend this to support the remaining endpoints shown in the docs.
-
-## Installation (local)
-
-```bash
-./gradlew build
-```
-
-## Usage
+## 📖 Usage
+To use the SDK, you can import the `CngnClient` class and create an instance of it. You can then use the client to make API requests.
 
 ```kotlin
 import com.example.cngn.CngnClient
-import kotlinx.coroutines.runBlocking
 
-fun main() = runBlocking {
-    val apiKey = "YOUR_API_KEY"
+// Create a new instance of the client
+val client = CngnClient()
 
-    val client = CngnClient.create(
-        apiKey = apiKey,
-        // baseUrl = "https://api.cngn.co/", // optional
-        enableLogging = true
-    )
-
-    val balanceResponse = client.getBalance()
-    println("Status: ${'$'}{balanceResponse.status}")
-    println("Message: ${'$'}{balanceResponse.message}")
-    println("Balances: ${'$'}{balanceResponse.data}")
-
-    val banksResponse = client.getBankList()
-    println("Banks: ${'$'}{banksResponse.data}")
-}
+// Use the client to make API requests
 ```
 
-## Extending the SDK
+## 🔗 Documentation
+- [cmi0fvumy000002l65aocce3y.md](./cmi0fvumy000002l65aocce3y.md) - Documentation for the SDK
 
-To add more endpoints:
-
-1. Update `CngnService` with the new Retrofit method, e.g.
-
-```kotlin
-@POST("v1/api/withdraw")
-suspend fun withdraw(@Body body: WithdrawRequest): ApiResponse<WithdrawResponse>
+## 📁 Folder Structure
+```
+📁 .gradle/
+  📁 9.0-milestone-1/
+  📁 buildOutputCleanup/
+📁 src/
+  📁 main/
+  📁 test/
+  📄 config.properties
+📄 build.gradle.kts
+📄 cmi0fvumy000002l65aocce3y.md
+📄 local.properties
+📄 README.md
+📄 settings.gradle.kts
 ```
 
-2. Create request/response models in `models/`.
-3. Add a wrapper function in `CngnClient` that calls the service method via `safeCall`.
-4. Write tests and update the README.
+## 📊 Testing
+To run the tests, you can use the `test` task in Gradle.
 
-Remember that the official docs sometimes show the `data` field as an encrypted string and also provide an example of the decrypted structure. This SDK maps the **decrypted** structure directly. If you have encryption enabled in your environment, you may need to plug in decryption logic before deserializing, or adjust the `ApiResponse` type to use `String` for `data` and handle decryption externally.
+```bash
+./gradlew test
+```
 
----
+## 🤝 Contributing
+Contributions are welcome! To contribute, you can fork this repository and submit a pull request.
 
-This is just a starter template — feel free to rename packages (`com.example.cngn` → `com.yourorg.cngn`) and publish it to Maven Central or JitPack.
+1. Fork the repository: `https://github.com/Gideonjon/cNGN-Kotlin-SDK.git`
+2. Create your feature branch: `git checkout -b feature/your-feature`
+3. Commit your changes: `git commit -m 'Add your feature'`
+4. Push to the branch: `git push origin feature/your-feature`
+5. Open a pull request
+
+Please make sure to follow the existing code style and conventions.
